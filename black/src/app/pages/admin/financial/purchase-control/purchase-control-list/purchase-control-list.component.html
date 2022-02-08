@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" style="align-self: center">
+      <h1 class="title-page d-flex flex-align-center">Controle de Compras</h1>
+    </div>
+    <div class="col text-right">
+      <button type="button" mat-stroked-button class="text-primary border-primary my-2" (click)="new()">Novo</button>
+    </div>
+  </div>
+
+  <mat-card>
+      <div class="row mb-n3">
+          <div class="col mr-n3">
+            <ng-select
+            appearance="outline"
+            [items]="purchases"
+            bindLabel="text"
+            bindValue="id"
+            [(ngModel)]="filterPurchasesValue"
+            (change)="searchFilter()"
+            placeholder="Descrição"
+            [ngModelOptions]="{standalone: true}"
+          >
+          </ng-select>
+          </div>
+
+          <div class="col text-right" [hidden]="dataSource.data.length <= 1">
+            <app-table-export
+              [dataSource]="dataSource"
+              [columns]="columnsExport"
+              [columnsName]="columnsExportName"
+              [name]="title"
+            ></app-table-export>
+          </div>
+      </div>
+  </mat-card>
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="description">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Descrição </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.description }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="requestName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Solicitante </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.requestName }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="responsableName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Autorizado por </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.responsableName }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateSolicitation">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Data Solicitação </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.dateSolicitation | date: 'dd/MM/yyyy' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateLimit">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Data Limite </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.dateLimit | date: 'dd/MM/yyyy' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="datePurchase">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Data Pagamento </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.datePurchase | date: 'dd/MM/yyyy' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateDelivery">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Data Entrega </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.dateDelivery | date: 'dd/MM/yyyy' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Situação </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <app-status-badge-status [value]="row.status" [statusDescription]="row.statusDescription">
+        </app-status-badge-status>
+      </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Ação </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button mat-sm-button type="button" (click)="edit(row)" [matTooltip]="editLabel">
+          <i class="fas fa-pen fa-lg text-black"></i>
+        </button>
+      </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <!-- <mat-footer-row *matFooterRowDef="displayedColumnsLanch" [hidden]="loading"></mat-footer-row> -->
+  </mat-table>
+
+  <mat-card *ngIf="loading" class="w-100 d-flex justify-content-center table-loading">
+    <mat-spinner diameter="20"></mat-spinner>
+  </mat-card>
+
+  <mat-card *ngIf="!loading && dataSource.data.length <= 0" class="w-100 d-flex justify-content-start table-loading">
+    <small>Nenhum item encontrado.</small>
+  </mat-card>
+
+  <mat-paginator class="mat-paginator-table" [length]="resultsLength" [pageSize]="paginatorHelper.PageSize"
+    [pageSizeOptions]="paginatorHelper.PageSizeOptions" showFirstLastButtons> </mat-paginator>
+</div>

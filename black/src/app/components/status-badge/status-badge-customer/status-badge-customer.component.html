@@ -1,0 +1,5 @@
+<span class="badge badge-status" [ngClass]="{'bg-success': value === StatusEnum.Good,
+                                             'bg-primary': value === StatusEnum.Regular,
+                                             'bg-danger': value === StatusEnum.Alert}">
+    {{statusDescription}}
+</span>
