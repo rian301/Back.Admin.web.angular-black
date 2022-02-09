@@ -113,12 +113,17 @@ export class Init {
         new Menu("Categoria de bens", "category", "patrimonio/categoria-bens"),
       ])
     );
+    this.menus.push(
+      new Menu("Premiação", "military_tech", "", false, false, [
+       new Menu("Prêmios", "emoji_events", "premiacao/premios"),
+       new Menu("Envios", "local_shipping", "premiacao/envio"),
+      ])
+    );
     this.menus.push(new Menu("Alunos", "badge", "alunos"));
     this.menus.push(new Menu("Mentoria", "psychology", "mentoria"));
     this.menus.push(new Menu("Lançamentos", "event", "lancamentos"));
     this.menus.push(new Menu("Aulões", "school", "auloes"));
     this.menus.push(new Menu("Produtos", "inventory", "produtos"));
-    this.menus.push(new Menu("Prêmios", "emoji_events", "premios"));
 
     var relatorios = [
       new Menu("Faturas Mentoria", "receipt", "relatorios/faturas-mentoria"),

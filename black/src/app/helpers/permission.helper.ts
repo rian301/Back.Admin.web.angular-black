@@ -74,4 +74,7 @@ export class PermissionHelper {
 
     static PENDENCY_VIEW = "PENDENCY_VIEW";
     static PENDENCY_ADD = "PENDENCY_ADD";
+
+    static SENT_VIEW = "SENT_VIEW";
+    static SENT_ADD = "SENT_ADD";
 }

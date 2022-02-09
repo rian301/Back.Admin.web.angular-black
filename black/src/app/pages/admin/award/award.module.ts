@@ -5,6 +5,8 @@ import { SharedAdminModule } from 'src/app/shared/shared-admin.module';
 import { AwardListComponent } from './award-list/award-list.component';
 import { AwardRoutingModule } from './award.routing';
 import { AwardComponent } from './award/award.component';
+import { SentListComponent } from './sent-list/sent-list.component';
+import { SentComponent } from './sent/sent.component';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { AwardComponent } from './award/award.component';
   ],
   declarations: [
     AwardComponent,
-    AwardListComponent
+    AwardListComponent,
+    SentComponent,
+    SentListComponent
   ],
   providers: [
     AwardService

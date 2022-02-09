@@ -32,19 +32,19 @@ export const routes: Routes = [
       {
         path: 'alunos',
         loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
-      },   
+      },
       {
         path: 'lancamentos',
         loadChildren: () => import('./launches/launch.module').then(m => m.LaunchModule)
-      }, 
+      },
       {
         path: 'produtos',
         loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
-      }, 
+      },
       {
-        path: 'premios',
+        path: 'premiacao',
         loadChildren: () => import('./award/award.module').then(m => m.AwardModule)
-      }, 
+      },
       {
         path: 'auloes',
         loadChildren: () => import('./class/class.module').then(m => m.ClassModule)
