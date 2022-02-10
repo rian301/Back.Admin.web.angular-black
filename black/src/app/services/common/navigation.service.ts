@@ -171,4 +171,16 @@ export class NavigationService {
   pendencyEdit(id: number) {
     this._router.navigate([`financeiro/pendencia/${id}`]);
   }
+
+  sentList() {
+    this._router.navigate(["premiacao/envio"]);
+  }
+
+  sentNew() {
+    this._router.navigate(["premiacao/envio/novo"]);
+  }
+
+  sentEdit(id: number) {
+    this._router.navigate([`premiacao/envio/${id}`]);
+  }
 }

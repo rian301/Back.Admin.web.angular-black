@@ -111,6 +111,7 @@ export class PendencyComponent extends OnDestroySubscriptions implements OnInit 
           this._snackBar.open(model.id > 0 ? `Pendência atualizado com sucesso!` : `Pendência salvo com sucesso!`);
           this.hidenTabs = false;
           this.id = resp.id;
+          this._navigationService.pendencyList();
         }
       })
       .catch(error => {

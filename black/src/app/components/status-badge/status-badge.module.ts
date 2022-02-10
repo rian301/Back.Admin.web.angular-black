@@ -12,6 +12,7 @@ import { StatusBadgeEmployeeComponent } from './status-badge-employee/status-bad
 import { StatusBadgePatrimonyComponent } from './status-badge-patrimony/status-badge-patrimony.component';
 import { StatusBadgeMentoredComponent } from './status-badge-mentored/status-badge-mentored.component';
 import { StatusBadgePendencyComponent } from './status-badge-pendency/status-badge-pendency.component';
+import { StatusBadgeSentComponent } from './status-badge-sent/status-badge-sent.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StatusBadgePendencyComponent } from './status-badge-pendency/status-bad
     StatusBadgeEmployeeComponent,
     StatusBadgePatrimonyComponent,
     StatusBadgeMentoredComponent,
-    StatusBadgePendencyComponent
+    StatusBadgePendencyComponent,
+    StatusBadgeSentComponent
   ],
   imports: [
     CommonModule
@@ -43,7 +45,8 @@ import { StatusBadgePendencyComponent } from './status-badge-pendency/status-bad
     StatusBadgeEmployeeComponent,
     StatusBadgePatrimonyComponent,
     StatusBadgeMentoredComponent,
-    StatusBadgePendencyComponent
+    StatusBadgePendencyComponent,
+    StatusBadgeSentComponent
   ],
 })
 
