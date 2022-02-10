@@ -62,7 +62,6 @@ export class MentoredContractComponent extends OnDestroySubscriptions implements
 
     console.log('fileList ', fileList);
     var t = fileList.sort((one, two) => (one > two ? -1 : 1));
-console.log("T => ", t);
 
     let file = fileList[0];
     let fileReader: FileReader = new FileReader();

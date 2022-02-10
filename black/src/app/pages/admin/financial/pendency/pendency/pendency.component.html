@@ -5,15 +5,12 @@
         {{title}}
       </h1>
     </div>
-    <!-- <div class="col-md-6 text-right pb-3">
-      <button *ngIf="statusCode == statusEnum.Resolved" type="button" mat-stroked-button
-        class="bg-warning text-white border-warning" (click)="modalConfirmationDeactivate()">Em Andamento</button>
-      <button *ngIf="statusCode == statusEnum.InProgress" (click)="modalConfirmationActivate()" type="button"
-        mat-flat-button class="bg-success text-white border-success ml-2">Resolver</button>
-    </div>\ -->
   </div>
-
   <mat-card>
+
+      Status:
+      <app-status-badge-pendency [value]="form.controls.status.value"
+        [statusDescription]="form.controls.statusDescription.value"></app-status-badge-pendency>
 
     <mat-tab-group mat-align-tabs="start">
       <mat-tab label="Dados Pendência">

@@ -144,8 +144,6 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
         this.validStatus(ret.status);
         this.title = "Editar Envio";
         this.form.controls.searchCustomer?.setValue(ret?.customerId);
-        console.log(this.form.value);
-
       })
       .catch(error => {
         this.loading = false;

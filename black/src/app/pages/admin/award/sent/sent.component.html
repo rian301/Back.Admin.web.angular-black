@@ -8,7 +8,9 @@
   </div>
 
   <mat-card>
-
+    Status:
+    <app-status-badge-sent [value]="form.controls.status.value"
+      [statusDescription]="form.controls.statusDescription.value"></app-status-badge-sent>
     <form [formGroup]="form" (ngSubmit)="save()" style="overflow-x: hidden;">
       <div class="row pt-3">
 
