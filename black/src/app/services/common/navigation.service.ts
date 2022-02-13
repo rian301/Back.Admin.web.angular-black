@@ -183,4 +183,16 @@ export class NavigationService {
   sentEdit(id: number) {
     this._router.navigate([`premiacao/envio/${id}`]);
   }
+
+  appList() {
+    this._router.navigate(["premiacao/app"]);
+  }
+
+  appNew() {
+    this._router.navigate(["premiacao/app/novo"]);
+  }
+
+  appEdit(id: number) {
+    this._router.navigate([`premiacao/app/${id}`]);
+  }
 }

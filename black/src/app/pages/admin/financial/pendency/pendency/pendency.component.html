@@ -70,7 +70,7 @@
               <div class="col-md-12 text-right">
                 <button type="button" mat-stroked-button class="text-primary border-primary mr-3"
                   (click)="cancel()">Cancelar</button>
-                <button type="submit" [ngClass]="{'bg-disabled': loading}" [class.btnSpinner]="loading" mat-flat-button
+                <button type="submit" [ngClass]="{'bg-disabled': loading || form.invalid}" [class.btnSpinner]="loading" mat-flat-button
                   class="bg-primary text-white">Salvar</button>
               </div>
             </div>

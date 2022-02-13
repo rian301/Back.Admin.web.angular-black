@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { SentStatusEnum } from "src/app/enums/Sent-status.enum.ts";
+import { SentStatusEnum } from "src/app/enums/app-status.enum";
 
 @Component({
     selector: 'app-status-badge-sent',

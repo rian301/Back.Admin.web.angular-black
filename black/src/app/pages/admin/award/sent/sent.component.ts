@@ -1,15 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { PendencyStatusEnum } from 'src/app/enums/pendency-status.enum.ts';
-import { SentStatusEnum } from 'src/app/enums/sent-status.enum.ts';
+import { SentStatusEnum } from 'src/app/enums/app-status.enum';
 import { OnDestroySubscriptions } from 'src/app/helpers/detroy-subscriptions.helper';
-import { CustomerListModel, CustomerModel } from 'src/app/models';
+import { CustomerListModel } from 'src/app/models';
 import { AwardModel } from 'src/app/models/award.model';
-import { DropDownModel } from 'src/app/models/dropdown.model';
 import { SentModel } from 'src/app/models/sent.model';
 import { CustomerService, NavigationService, UtilitariosService } from 'src/app/services';
 import { AwardService } from 'src/app/services/admin/award.service';

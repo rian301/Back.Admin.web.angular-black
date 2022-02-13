@@ -77,4 +77,7 @@ export class PermissionHelper {
 
     static SENT_VIEW = "SENT_VIEW";
     static SENT_ADD = "SENT_ADD";
+
+    static APP_VIEW = "APP_VIEW";
+    static APP_ADD = "APP_ADD";
 }

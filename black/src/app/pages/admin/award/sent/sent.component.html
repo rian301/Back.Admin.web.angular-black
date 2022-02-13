@@ -8,9 +8,11 @@
   </div>
 
   <mat-card>
-    Status:
-    <app-status-badge-sent [value]="form.controls.status.value"
-      [statusDescription]="form.controls.statusDescription.value"></app-status-badge-sent>
+    <span *ngIf="id">
+      Status:
+      <app-status-badge-sent [value]="form.controls.status.value"
+        [statusDescription]="form.controls.statusDescription.value"></app-status-badge-sent>
+    </span>
     <form [formGroup]="form" (ngSubmit)="save()" style="overflow-x: hidden;">
       <div class="row pt-3">
 
@@ -149,7 +151,7 @@
         <div class="col-md-12 text-right">
           <button type="button" mat-stroked-button class="text-primary border-primary mr-3"
             (click)="cancel()">Cancelar</button>
-          <button type="submit" [ngClass]="{'bg-disabled': loading}" [class.btnSpinner]="loading" mat-flat-button
+          <button type="submit" [ngClass]="{'bg-disabled': loading || form.invalid}" [class.btnSpinner]="loading" mat-flat-button
             class="bg-primary text-white">Salvar</button>
         </div>
       </div>
