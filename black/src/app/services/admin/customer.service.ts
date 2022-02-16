@@ -25,6 +25,10 @@ export class CustomerService {
 		return this.http.get<CustomerModel>(`${environment.urlApiResource}/${this.endpoint}/${id}`);
 	}
 
+  findList(id: number): Observable<CustomerListModel> {
+		return this.http.get<CustomerListModel>(`${environment.urlApiResource}/${this.endpoint}/${id}`);
+	}
+
 	save(model: CustomerModel): Observable<CustomerModel> {
 		if (model.id != null && model.id > 0)
 			return this.put(model.id, model);

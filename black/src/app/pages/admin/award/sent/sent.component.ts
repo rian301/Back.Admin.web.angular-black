@@ -87,8 +87,9 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
     this.subscriptions.add(
       this.route.params.subscribe(params => {
         this.id = params['id'];
-        if (this.id != null)
+        if (this.id != null) {
           this.load();
+        }
       })
     );
   }
@@ -132,14 +133,37 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
       });
   }
 
+  loadCustomerById(id: number) {
+    this.loading = true;
+    this._customerService
+      .findList(id)
+      .toPromise()
+      .then((resp: CustomerListModel) => {
+        if (resp) {
+          this.customers.push(resp);
+          this.filterText = resp.name;
+          this.loadCustomers();
+        }
+        this.loading = false;
+      })
+      .catch(error => {
+        this.loading = false;
+        this._utilitariosService.HttpErrorReturn(error, (msg, ret) => {
+          this._utilitariosService.SnackAlert(msg, 'error');
+        });
+      });
+  }
+
   load() {
     this._sentService.find(this.id)
       .toPromise()
       .then((ret) => {
+        if (ret.customerId)
+          this.loadCustomerById(ret.customerId);
+
         this.form.patchValue(ret);
         this.validStatus(ret.status);
-        this.title = "Editar Envio";
-        this.form.controls.searchCustomer?.setValue(ret?.customerId);
+        this.form.controls.searchCustomer.setValue(ret?.customerId);
       })
       .catch(error => {
         this.loading = false;
