@@ -74,7 +74,7 @@ export class ApplicationComponent extends OnDestroySubscriptions implements OnIn
       .then((ret) => {
         this.form.patchValue(ret);
         this.validStatus(ret.status);
-        this.title = "Editar APLICATIVO";
+        this.title = "Editar Aplicativo";
       })
       .catch(error => {
         this.loading = false;

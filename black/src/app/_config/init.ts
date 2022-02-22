@@ -118,6 +118,7 @@ export class Init {
        new Menu("Prêmios", "emoji_events", "premiacao/premios"),
        new Menu("Envios", "local_shipping", "premiacao/envio"),
        new Menu("Aplicativos", "apps", "premiacao/app"),
+       new Menu("Brindes", "card_giftcard", "premiacao/brinde"),
       ])
     );
     this.menus.push(new Menu("Alunos", "badge", "alunos"));

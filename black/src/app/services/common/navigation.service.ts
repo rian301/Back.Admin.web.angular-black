@@ -195,4 +195,16 @@ export class NavigationService {
   appEdit(id: number) {
     this._router.navigate([`premiacao/app/${id}`]);
   }
+
+  giftList() {
+    this._router.navigate(["premiacao/brinde"]);
+  }
+
+  giftNew() {
+    this._router.navigate(["premiacao/brinde/novo"]);
+  }
+
+  giftEdit(id: number) {
+    this._router.navigate([`premiacao/brinde/${id}`]);
+  }
 }

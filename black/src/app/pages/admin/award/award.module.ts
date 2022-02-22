@@ -4,6 +4,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { CustomerService } from 'src/app/services';
 import { ApplicationService } from 'src/app/services/admin/application.service';
 import { AwardService } from 'src/app/services/admin/award.service';
+import { GiftService } from 'src/app/services/admin/gift.service';
 import { SentService } from 'src/app/services/admin/sent.service';
 import { SharedAdminModule } from 'src/app/shared/shared-admin.module';
 import { ApplicationListComponent } from './application-list/application-list.component';
@@ -11,6 +12,9 @@ import { ApplicationComponent } from './application/application.component';
 import { AwardListComponent } from './award-list/award-list.component';
 import { AwardRoutingModule } from './award.routing';
 import { AwardComponent } from './award/award.component';
+import { GiftDocComponent } from './gift-doc/gift-doc.component';
+import { GiftListComponent } from './gift-list/gift-list.component';
+import { GiftComponent } from './gift/gift.component';
 import { SentListComponent } from './sent-list/sent-list.component';
 import { SentComponent } from './sent/sent.component';
 
@@ -27,13 +31,17 @@ import { SentComponent } from './sent/sent.component';
     SentComponent,
     SentListComponent,
     ApplicationListComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    GiftListComponent,
+    GiftComponent,
+    GiftDocComponent
   ],
   providers: [
     AwardService,
     SentService,
     CustomerService,
-    ApplicationService
+    ApplicationService,
+    GiftService
   ]
 })
 export class AwardModule { }

@@ -80,4 +80,7 @@ export class PermissionHelper {
 
     static APP_VIEW = "APP_VIEW";
     static APP_ADD = "APP_ADD";
+
+    static GIFT_VIEW = "GIFT_VIEW";
+    static GIFT_ADD = "GIFT_ADD";
 }
