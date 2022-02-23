@@ -80,7 +80,7 @@
 
     <ng-container matColumnDef="total">
       <mat-header-cell mat-sort-header *matHeaderCellDef> Estoque </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ total }} </mat-cell>
+      <mat-cell *matCellDef="let row"> {{ row.totalExport }} </mat-cell>
       <!-- <mat-footer-cell *matFooterCellDef> R$ {{ getTotal() | number: '1.2-2' }}</mat-footer-cell> -->
       <mat-footer-cell *matFooterCellDef></mat-footer-cell>
     </ng-container>

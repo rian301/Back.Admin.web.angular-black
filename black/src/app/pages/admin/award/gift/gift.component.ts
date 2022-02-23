@@ -77,7 +77,7 @@ export class GiftComponent extends OnDestroySubscriptions implements OnInit {
       .then((ret) => {
         this.form.patchValue(ret);
         this.title = "Editar Brinde";
-        var total = ret.entrance - ret.exit;
+        var total = ret.quantity + ret.entrance - ret.exit;
         this.form.controls.total.setValue(total);
       })
       .catch(error => {
@@ -207,11 +207,11 @@ export class GiftComponent extends OnDestroySubscriptions implements OnInit {
   }
 
   changeTotal(event) {
-    var total = this.form.value.entrance - this.form.value.exit;
+    var total = this.form.value.quantity + this.form.value.entrance - this.form.value.exit;
     this.form.controls.total.setValue(total);
   }
 
   cancel() {
-    this._navigationService.appList();
+    this._navigationService.giftList();
   }
 }

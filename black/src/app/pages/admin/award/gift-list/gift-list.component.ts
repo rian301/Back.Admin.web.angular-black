@@ -33,7 +33,6 @@ export class GiftListComponent implements OnInit {
   apps: DropDownModel[] = [];
   status: string[] = [];
   filterStatus: string = "";
-  total: number = 0;
 
   constructor(
     private _utilitariosService: UtilitariosService,
@@ -78,7 +77,7 @@ export class GiftListComponent implements OnInit {
 
           item.dateIncluseExport = this._datePipe.transform(item.dateIncluse?.toString(), 'dd/MM/yyyy');
           item.totalExport = item.entrance - item.exit;
-          this.total = item.entrance - item.exit;
+          item.totalExport = item.quantity + item.entrance - item.exit;
         });
         this.loading = false;
       })
