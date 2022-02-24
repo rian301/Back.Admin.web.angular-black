@@ -41,9 +41,9 @@
 
   <mat-table [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="desc" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="requester">
-      <mat-header-cell mat-sort-header *matHeaderCellDef> Solicitante </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.requester }} </mat-cell>
+    <ng-container matColumnDef="customerName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Aluno </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.customerName }} </mat-cell>
       <mat-footer-cell *matFooterCellDef></mat-footer-cell>
     </ng-container>
 

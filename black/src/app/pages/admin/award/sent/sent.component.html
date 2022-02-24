@@ -26,7 +26,7 @@
         <input-validator class="col-md-3" [messages]="{required: 'Campo obrigatório'}">
           <ng-select appearance="outline" [items]="customers" bindLabel="name" bindValue="id"
             formControlName="searchCustomer" [(ngModel)]="search" placeholder="Aluno"
-            (keyup)="searchCustomer($event.target.value)">
+            (keyup)="searchCustomer($event.target.value)" required>
           </ng-select>
         </input-validator>
 

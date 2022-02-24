@@ -46,7 +46,7 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
     super();
 
     this.form = this._formbuilder.group({
-      searchCustomer: [],
+      searchCustomer: [ null, [Validators.required]],
       id: [''],
       name: [''],
       awardId: [null, [Validators.required]],

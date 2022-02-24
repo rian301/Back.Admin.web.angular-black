@@ -3,7 +3,8 @@ import { AdressModel } from "./adress.model";
 export class SentModel {
     id: number = null;
     awardId: string = null;
-    customerId: string = null;
+    customerId: number = null;
+    customerName: string = null;
     dateRequest: Date = null;
     dateSend: Date = null;
     dateReceiving: Date = null;

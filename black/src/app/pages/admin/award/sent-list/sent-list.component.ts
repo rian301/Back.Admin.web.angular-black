@@ -24,8 +24,8 @@ export class SentListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   paginatorHelper: typeof PaginatorHelper = PaginatorHelper;
-  displayedColumns: string[] = ['requester', 'dateRequest', 'dateSend', 'dateReceiving', 'status', 'action'];
-  columnsExport: string[] = ['requester', 'dateRequestExport', 'dateSendExport', 'dateReceivingExport', 'statusDescription'];
+  displayedColumns: string[] = ['customerName', 'dateRequest', 'dateSend', 'dateReceiving', 'status', 'action'];
+  columnsExport: string[] = ['customerName', 'requester', 'dateRequestExport', 'dateSendExport', 'dateReceivingExport', 'statusDescription'];
   columnsExportName: string[] = ['Solicitante', 'Data da solicitação', 'Data de envio', 'Data do recebimento', 'Status'];
   filterProviderValue: number;
   loading: boolean = false;
@@ -73,7 +73,7 @@ export class SentListComponent implements OnInit {
         // Carrega os selects dos filtros
         ret.forEach(item => {
           if (this.sents.findIndex(f => f.id == item.id) < 0)
-            this.sents.push(new DropDownModel(item.id, item.requester));
+            this.sents.push(new DropDownModel(item.id, item.customerName));
 
           if (!this.status.includes(item.statusDescription))
             this.status.push(item.statusDescription);
