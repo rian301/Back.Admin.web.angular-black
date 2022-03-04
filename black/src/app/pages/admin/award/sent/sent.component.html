@@ -26,7 +26,14 @@
         <input-validator class="col-md-3" [messages]="{required: 'Campo obrigatório'}">
           <ng-select appearance="outline" [items]="customers" bindLabel="name" bindValue="id"
             formControlName="searchCustomer" [(ngModel)]="search" placeholder="Aluno"
-            (keyup)="searchCustomer($event.target.value)" required>
+            (keyup)="searchCustomer($event.target.value)">
+          </ng-select>
+        </input-validator>
+
+        <input-validator class="col-md-3" [messages]="{required: 'Campo obrigatório'}">
+          <ng-select appearance="outline" [items]="mentoreds" bindLabel="name" bindValue="id"
+            formControlName="searchMentored" [(ngModel)]="searchM" placeholder="Mentorado"
+            (keyup)="searchMentored($event.target.value)">
           </ng-select>
         </input-validator>
 
@@ -151,8 +158,8 @@
         <div class="col-md-12 text-right">
           <button type="button" mat-stroked-button class="text-primary border-primary mr-3"
             (click)="cancel()">Cancelar</button>
-          <button type="submit" [ngClass]="{'bg-disabled': loading || form.invalid}" [class.btnSpinner]="loading" mat-flat-button
-            class="bg-primary text-white">Salvar</button>
+          <button type="submit" [ngClass]="{'bg-disabled': loading || form.invalid}" [class.btnSpinner]="loading"
+            mat-flat-button class="bg-primary text-white">Salvar</button>
         </div>
       </div>
     </form>

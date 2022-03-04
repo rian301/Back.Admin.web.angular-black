@@ -36,7 +36,7 @@ export class DailyPaymentComponent extends OnDestroySubscriptions implements OnI
   categories: ExpenseCategoryModel[] = [];
   docsList: DailyPaymentDocModel[] = [];
   startDate: Date = new Date();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   dataSourceDocs = new MatTableDataSource();
   displayedColumnsDoc: string[] = ['fileName', 'document', 'actions', 'upload', 'status', 'action'];
   selectedCompetence: any;

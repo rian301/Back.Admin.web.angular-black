@@ -6,9 +6,11 @@ import { SentStatusEnum } from 'src/app/enums/app-status.enum';
 import { OnDestroySubscriptions } from 'src/app/helpers/detroy-subscriptions.helper';
 import { CustomerListModel } from 'src/app/models';
 import { AwardModel } from 'src/app/models/award.model';
+import { MentoredModel } from 'src/app/models/mentored.model';
 import { SentModel } from 'src/app/models/sent.model';
 import { CustomerService, NavigationService, UtilitariosService } from 'src/app/services';
 import { AwardService } from 'src/app/services/admin/award.service';
+import { MentoredService } from 'src/app/services/admin/mentored.service';
 import { SentService } from 'src/app/services/admin/sent.service';
 import { UtilService } from 'src/app/services/admin/util.service';
 
@@ -25,11 +27,13 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
   loading: boolean = false;
   statusCode: number;
   startDate: Date = new Date();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   awards: AwardModel[] = [];
   customers: CustomerListModel[] = [];
+  mentoreds: MentoredModel[] = [];
   filterText: string = null;
   search: string = null;
+  searchM: string = null;
   cepDetected: boolean = true;
 
   constructor(
@@ -41,16 +45,19 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
     private route: ActivatedRoute,
     private _navigationService: NavigationService,
     private _awardService: AwardService,
-    private _customerService: CustomerService
+    private _customerService: CustomerService,
+    private _mentoredService: MentoredService
   ) {
     super();
 
     this.form = this._formbuilder.group({
-      searchCustomer: [ null, [Validators.required]],
+      searchCustomer: [ null ],
+      searchMentored: [ null ],
       id: [''],
       name: [''],
       awardId: [null, [Validators.required]],
       customerId: [],
+      mentoredId: [],
       dateRequest: [''],
       dateSend: [''],
       dateReceiving: [''],
@@ -81,9 +88,20 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
     }, 400);
   }
 
+  searchMentored(event) {
+    // Nome
+    setTimeout(() => {
+      this.filterText = event;
+      if (this.filterText.length >= 3 || this.filterText.length == 0) {
+        this.loadCustomers();
+      }
+    }, 400);
+  }
+
   ngOnInit(): void {
     this.loadAwardList();
     this.loadCustomers();
+    this.loadMentored();
     this.subscriptions.add(
       this.route.params.subscribe(params => {
         this.id = params['id'];
@@ -107,6 +125,23 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
       .then((ret) => {
         this.loading = false;
         this.customers = ret.content;
+      })
+      .catch((error) => {
+        this.loading = false;
+        this._utilitariosService.HttpErrorReturn(error, (msg, ret) => {
+          this._utilitariosService.SnackAlert(msg, "error");
+        });
+      });
+  }
+
+  loadMentored() {
+    this.loading = true;
+    this._mentoredService
+      .get()
+      .toPromise()
+      .then((ret) => {
+        this.loading = false;
+        this.mentoreds = ret;
       })
       .catch((error) => {
         this.loading = false;
@@ -164,6 +199,7 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
         this.form.patchValue(ret);
         this.validStatus(ret.status);
         this.form.controls.searchCustomer.setValue(ret?.customerId);
+        this.form.controls.searchMentored.setValue(ret?.mentoredId);
       })
       .catch(error => {
         this.loading = false;
@@ -179,7 +215,9 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
       this._utilService.FormValidate(this.form);
       return;
     }
+
     this.form.controls["customerId"].setValue(this.search);
+    this.form.controls["mentoredId"].setValue(this.searchM);
 
     this.loading = true;
     let model = <SentModel>this.form.value;

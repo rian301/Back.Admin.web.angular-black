@@ -41,7 +41,7 @@ export class PurchaseControlComponent extends OnDestroySubscriptions implements 
   displayedColumnsDoc: string[] = ['fileName', 'document', 'actions', 'upload', 'status', 'action'];
   docsList: PurchaseControlDocModel[] = [];
   startDate: Date = new Date();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   dataSourceDocs = new MatTableDataSource();
   selectedCompetence: any;
   docTypes = DependentDocTypeEnumList();

@@ -5,6 +5,7 @@ import { CustomerService } from 'src/app/services';
 import { ApplicationService } from 'src/app/services/admin/application.service';
 import { AwardService } from 'src/app/services/admin/award.service';
 import { GiftService } from 'src/app/services/admin/gift.service';
+import { MentoredService } from 'src/app/services/admin/mentored.service';
 import { SentService } from 'src/app/services/admin/sent.service';
 import { SharedAdminModule } from 'src/app/shared/shared-admin.module';
 import { ApplicationListComponent } from './application-list/application-list.component';
@@ -41,7 +42,8 @@ import { SentComponent } from './sent/sent.component';
     SentService,
     CustomerService,
     ApplicationService,
-    GiftService
+    GiftService,
+    MentoredService
   ]
 })
 export class AwardModule { }

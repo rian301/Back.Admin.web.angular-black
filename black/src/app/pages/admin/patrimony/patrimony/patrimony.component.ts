@@ -33,7 +33,7 @@ export class PatrimonyComponent extends OnDestroySubscriptions implements OnInit
   providers: ProviderModel[] = [];
   categories: AssetsCategoryModel[] = [];
   docsList: PatrimonyDocModel[] = [];
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   status = listaEnumPatrimonyStatus();
   dataSourceDocs = new MatTableDataSource();
   displayedColumnsDoc: string[] = ['fileName', 'document', 'actions', 'upload', 'status', 'action'];

@@ -63,11 +63,11 @@
     <mat-cell *matCellDef="let row"> {{ row.mentoredName }} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="productName">
+  <ng-container matColumnDef="amountTotalContract">
     <mat-header-cell mat-sort-header *matHeaderCellDef>
-      Produto
+      V. Total Contrato
     </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{ row.productName }} </mat-cell>
+    <mat-cell *matCellDef="let row"> R$ {{ row.amountTotalContract | number: '1.2-2' }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="subscriptionDate">

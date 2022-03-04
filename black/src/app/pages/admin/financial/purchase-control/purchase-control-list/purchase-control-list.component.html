@@ -41,9 +41,9 @@
       <mat-cell *matCellDef="let row"> {{ row.description }} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="requestName">
-      <mat-header-cell mat-sort-header *matHeaderCellDef> Solicitante </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.requestName }} </mat-cell>
+    <ng-container matColumnDef="amount">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> V. Produto </mat-header-cell>
+      <mat-cell *matCellDef="let row"> R$ {{ row.amount | number: '1.2-2' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="responsableName">

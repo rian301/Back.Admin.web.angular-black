@@ -37,7 +37,7 @@ export class ReportMentoredContractComponent implements OnInit {
   displayedColumnsInvoices: string[] = [
     "id",
     "mentoredName",
-    "productName",
+    "amountTotalContract",
     "subscriptionDate",
     "endSubscriptionDate",
     "status",
@@ -45,14 +45,14 @@ export class ReportMentoredContractComponent implements OnInit {
   columnsExport: string[] = [
     "id",
     "mentoredName",
-    "productName",
+    "amountTotalContract",
     "subscriptionDateString",
     "endSubscriptionDateString",
   ];
   columnsExportName: string[] = [
     "id",
     "Mentorado",
-    "Produto",
+    "Total",
     "Início",
     "Vencimento",
   ];

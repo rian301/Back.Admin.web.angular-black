@@ -22,7 +22,7 @@ export class ApplicationComponent extends OnDestroySubscriptions implements OnIn
   loading: boolean = false;
   statusCode: number;
   startDate: Date = new Date();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   filterText: string = null;
   search: string = null;
   cepDetected: boolean = true;

@@ -64,7 +64,7 @@ import { ImportExcelService } from 'src/app/services/common/import-excel/import-
     MatProgressSpinnerModule,
     MatSortModule,
     QRCodeModule,
-    CancelarDialogModule
+    CancelarDialogModule,
   ],
   declarations: [
     ChangePasswordComponent,
@@ -76,9 +76,9 @@ import { ImportExcelService } from 'src/app/services/common/import-excel/import-
       AppService,
       UtilService,
       UtilitariosService,
-      DashBordService,    
-      ImportExcelService, 
-      PermissionService,  
+      DashBordService,
+      ImportExcelService,
+      PermissionService,
       { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
     ],
 })

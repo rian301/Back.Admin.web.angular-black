@@ -63,7 +63,7 @@ export class MentoredComponent extends OnDestroySubscriptions implements OnInit 
   dataSourceDocs = new MatTableDataSource();
   dataSourceSub = new MatTableDataSource();
   dataSourceAward = new MatTableDataSource();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   docsList: MentoredContractModel[] = [];
   companies: DropDownModel[] = [];
   datePayments: DropDownModel[] = [];
@@ -246,6 +246,8 @@ export class MentoredComponent extends OnDestroySubscriptions implements OnInit 
       .then((ret: MentoredSubscriptionModel[]) => {
         if (ret != null)
           this.dataSourceSub.data = ret;
+          console.log(ret);
+
       })
       .catch(error => {
         this.loading = false;
@@ -260,6 +262,7 @@ export class MentoredComponent extends OnDestroySubscriptions implements OnInit 
       .toPromise()
       .then((ret: InvoiceModel[]) => {
         this.dataSourcePayment.data = ret;
+
         this.loadDocs();
         this.companies = [];
         this.datePayments = [];

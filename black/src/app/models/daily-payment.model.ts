@@ -19,6 +19,8 @@ export class DailyPaymentModel {
 
     // propriedades da lista (visualização)
     dateFuturePayment: string = null;
+    dateSchedulingPaymentExport: string = null;
+    datePaymentExport: string = null;
     typeDoc: number = null;
     files: any = null;
 }

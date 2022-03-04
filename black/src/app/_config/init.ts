@@ -98,7 +98,7 @@ export class Init {
         ),
         new Menu("Fornecedor", "local_shipping", "financeiro/fornecedor"),
         new Menu("Categoria", "category", "financeiro/categoria"),
-        new Menu("Documentos", "post_add", "financeiro/documento"),
+        // new Menu("Documentos", "post_add", "financeiro/documento"),
         new Menu("Pendências", "warning_amber", "financeiro/pendencias"),
       ])
     );

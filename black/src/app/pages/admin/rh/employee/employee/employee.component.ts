@@ -38,7 +38,7 @@ export class EmployeeComponent extends OnDestroySubscriptions implements OnInit 
   employeeStatusEnum: typeof EmployeeStatusEnum = EmployeeStatusEnum;
   employeeType: typeof EmployeeTypeEnum = EmployeeTypeEnum;
   dataSourceDocs = new MatTableDataSource();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
 
   constructor(
     private _formbuilder: FormBuilder,

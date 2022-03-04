@@ -25,7 +25,7 @@ export class PurchaseControlListComponent implements OnInit {
   filterPurchasesValue: number;
   displayedColumns: string[] = [
     "description",
-    "requestName",
+    "amount",
     "responsableName",
     "dateSolicitation",
     "dateLimit",
@@ -35,7 +35,7 @@ export class PurchaseControlListComponent implements OnInit {
   ];
   columnsExport: string[] = [
     "description",
-    "requestName",
+    "amount",
     "responsableName",
     "dateSolicitation",
     "dateLimit",
@@ -44,7 +44,7 @@ export class PurchaseControlListComponent implements OnInit {
   ];
   columnsExportName: string[] = [
     "Descrição",
-    "Solicitante",
+    "Valor",
     "Aprovado por",
     "Data Solicitação",
     "Data Limite",

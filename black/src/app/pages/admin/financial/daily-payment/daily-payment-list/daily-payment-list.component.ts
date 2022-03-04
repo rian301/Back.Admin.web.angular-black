@@ -26,8 +26,8 @@ export class DailyPaymentListComponent extends OnDestroySubscriptions implements
   paginatorHelper: typeof PaginatorHelper = PaginatorHelper;
 
   displayedColumns: string[] = ['providerName', 'dateSchedulingPayment', 'datePayment', 'amount', 'action'];
-  columnsExport: string[] = ['providerName', 'document', 'datePayment', 'dateSchedulingPayment', 'amount', 'provider.name', 'categoryName'];
-  columnsExportName: string[] = ['Fornecedor', 'Docimento', 'Data do agendamento', 'Data do pagamento', 'Valor', 'Fornecedor', 'Categoria'];
+  columnsExport: string[] = ['providerName', 'amount', 'document', 'bank', 'agency', 'acount', 'pix'];
+  columnsExportName: string[] = ['Fornecedor', 'Valor', 'Documento', 'Banco', 'Agencia', 'Conta', 'Pix'];
   title: string = 'Pagamentos';
   filterNameValue: number;
   filterFutureValue: string;
@@ -114,10 +114,15 @@ export class DailyPaymentListComponent extends OnDestroySubscriptions implements
   }
 
   ngAfterViewInit(): void {
-    // Event Change pagination
-    this.paginator.page.subscribe((value: string) => {
-      this.load();
-    });
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+    if (this.sort != null)
+      this.sort.sortChange.subscribe(() => {
+        this.load();
+        if (this.paginator)
+          this.paginator.firstPage();
+      });
   }
 
   ngOnInit(): void {
@@ -153,6 +158,9 @@ export class DailyPaymentListComponent extends OnDestroySubscriptions implements
         // Carrega os selects dos filtros
         ret.content.forEach(item => {
           item.dateFuturePayment = this._datePipe.transform(item.dateSchedulingPayment?.toString(), 'dd/MM/yyyy');
+
+          item.datePaymentExport = this._datePipe.transform(item.datePayment?.toString(), 'dd/MM/yyyy');
+          item.dateSchedulingPaymentExport = this._datePipe.transform(item.dateSchedulingPayment?.toString(), 'dd/MM/yyyy');
 
           if (this.names.findIndex(f => f.id == item.id) < 0) this.names.push(new DropDownModel(item.id, item.name));
 

@@ -49,7 +49,7 @@ export class ExpenseControlComponent
   docTypes = DependentDocTypeEnumList();
   imgFile: string = "";
   hidenTabs: boolean = false;
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   dataSourceDocs = new MatTableDataSource();
   displayedColumnsDoc: string[] = [
     "fileName",
@@ -248,12 +248,12 @@ export class ExpenseControlComponent
       });
   }
 
-  downloadDoc(doc: ExpenseControlDocModel) {   
+  downloadDoc(doc: ExpenseControlDocModel) {
     this._expenseService
       .downloadDoc(this.id, doc.id)
       .toPromise()
       .then((resp) => {
-        this.downloadFile(resp, doc);        
+        this.downloadFile(resp, doc);
       })
       .catch((error) => {
         this._utilitariosService.HttpErrorReturn(error, (msg, ret) => {

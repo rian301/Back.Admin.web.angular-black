@@ -19,7 +19,7 @@
     <mat-card class="mb-3">
       <form [formGroup]="form">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col">
             <ng-select
               appearance="outline"
               [items]="patrimonies"
@@ -48,7 +48,7 @@
             </mat-select>
           </mat-form-field>
 
-          <div class="col text-right" [hidden]="dataSource.data.length <= 1">
+          <div class="col-1 text-right" [hidden]="dataSource.data.length <= 1">
             <app-table-export
               [dataSource]="dataSource"
               [columns]="columnsExport"

@@ -4,6 +4,7 @@ export class SentGetModel {
     id: number = null;
     awardId: string = null;
     customerId: number = null;
+    mentoredId: number = null;
     dateRequest: Date = null;
     dateSend: Date = null;
     dateReceiving: Date = null;

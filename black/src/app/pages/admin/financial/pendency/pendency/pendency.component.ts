@@ -31,7 +31,7 @@ export class PendencyComponent extends OnDestroySubscriptions implements OnInit 
   hidenTabs: boolean = false;
   statusCode: number;
   startDate: Date = new Date();
-  statusDocFilter: number = 0;
+  statusDocFilter: number = 1;
   dataSourceDocs = new MatTableDataSource();
   displayedColumnsDoc: string[] = ['fileName', 'document', 'actions', 'upload', 'status', 'action'];
   docsList: PendencyDocModel[] = [];
