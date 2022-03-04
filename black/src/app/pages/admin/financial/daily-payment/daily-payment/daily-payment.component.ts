@@ -72,6 +72,8 @@ export class DailyPaymentComponent extends OnDestroySubscriptions implements OnI
     this.form.controls["dateFuturePayment"].clearValidators();
     this.form.controls["typeDoc"].clearValidators();
     this.form.controls["files"].clearValidators();
+    this.form.controls["datePaymentExport"].clearValidators();
+    this.form.controls["dateSchedulingPaymentExport"].clearValidators();
   }
 
   ngOnInit(): void {
