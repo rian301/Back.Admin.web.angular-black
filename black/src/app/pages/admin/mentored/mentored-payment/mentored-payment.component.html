@@ -193,10 +193,8 @@
       <button type="button" mat-stroked-button mat-dialog-close class="text-primary border-primary">
         Cancelar
       </button>
-      <button type="submit" [disabled]="statusCode == statusSubscription.Canceled || statusCode == statusSubscription.Conclude"
-        [ngClass]="{
-          'bg-disabled': loading || statusCode == statusSubscription.Canceled || statusCode == statusSubscription.Conclude
-        }" [class.btnSpinner]="loading" (click)="save()" mat-flat-button class="bg-primary text-white">
+      <button type="submit"
+         (click)="save()" mat-flat-button class="bg-primary text-white">
         Salvar
       </button>
     </mat-dialog-actions>

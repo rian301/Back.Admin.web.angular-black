@@ -34,7 +34,6 @@ export class ReportMentoredComponent implements OnInit {
   startDateEnd = new Date();
   dateLimitInadiplent = new Date();
   displayedColumnsInvoices: string[] = [
-    "id",
     "mentoredName",
     "createdAt",
     "expirationDate",
@@ -43,7 +42,6 @@ export class ReportMentoredComponent implements OnInit {
     "status",
   ];
   columnsExport: string[] = [
-    "id",
     "mentoredName",
     "createdAtString",
     "expirationDateString",
@@ -52,7 +50,6 @@ export class ReportMentoredComponent implements OnInit {
     "statusDescription",
   ];
   columnsExportName: string[] = [
-    "id",
     "Mentorado",
     "Emissão",
     "Vencimento",
@@ -124,7 +121,6 @@ export class ReportMentoredComponent implements OnInit {
             item.createdAt?.toString(),
             "dd/MM/yyyy"
           );
-
           if (!this.situations.includes(item.statusDescription))
             this.situations.push(item.statusDescription);
 

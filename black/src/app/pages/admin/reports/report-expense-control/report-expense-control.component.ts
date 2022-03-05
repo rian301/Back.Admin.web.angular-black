@@ -88,6 +88,7 @@ export class ReportExpenseControlComponent implements OnInit {
   }
 
   reportExpense() {
+    this.loading = true;
     let model = <ReportExpenseControlModel>this.form.value;
     this._reportService
       .GetAllExpenseControlByPeriod(model)
@@ -95,6 +96,7 @@ export class ReportExpenseControlComponent implements OnInit {
       .then((resp) => {
         if (resp)
           this.downloadFile(resp);
+          this.loading = false;
       })
       .catch((errors) => {
         this._utilitariosService.HttpErrorReturn(errors, (msg, ret) => {
