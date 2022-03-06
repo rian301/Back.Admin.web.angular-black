@@ -8,72 +8,42 @@
 
 <mat-card class="mb-3">
   <div class="row">
+    <mat-checkbox class="mb-0 mt-3 ml-2" (change)="checkBox($event)" [(ngModel)]="isChecked">
+      Apenas Pago</mat-checkbox>
     <mat-form-field class="col-md-3" appearance="outline">
       <mat-label>Período</mat-label>
       <mat-date-range-input [formGroup]="form" [rangePicker]="rangePicker">
-        <input
-          matStartDate
-          placeholder="Data Inicial"
-          formControlName="datInit"
-        />
-        <input
-          matEndDate
-          placeholder="Data Final"
-          formControlName="datEnd"
-          (dateChange)="load()"
-        />
+        <input matStartDate placeholder="Data Inicial" formControlName="datInit" />
+        <input matEndDate placeholder="Data Final" formControlName="datEnd" (dateChange)="load()" />
       </mat-date-range-input>
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="rangePicker"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
       <mat-date-range-picker #rangePicker></mat-date-range-picker>
     </mat-form-field>
 
     <div class="col-md-3">
-      <ng-select
-        appearance="outline"
-        [items]="mentoreds"
-        bindLabel="text"
-        bindValue="id"
-        [(ngModel)]="filterMentoredValue"
-        (change)="searchFilter()"
-        placeholder="Mentorado"
-      >
+      <ng-select appearance="outline" [items]="mentoreds" bindLabel="text" bindValue="id"
+        [(ngModel)]="filterMentoredValue" (change)="searchFilter()" placeholder="Mentorado">
       </ng-select>
     </div>
 
     <mat-form-field class="col-md-3" appearance="outline">
       <mat-label>Situação</mat-label>
-      <mat-select
-        value=""
-        (selectionChange)="searchFilter()"
-        [(ngModel)]="filterStatus"
-      >
+      <mat-select value="" (selectionChange)="searchFilter()" [(ngModel)]="filterStatus">
         <mat-option value="">Todos</mat-option>
         <mat-option *ngFor="let item of situations" [value]="item">{{
           item
-        }}</mat-option>
+          }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <div class="col text-right">
-      <app-table-export
-        [dataSource]="dataSource"
-        [columns]="columnsExport"
-        [columnsName]="columnsExportName"
-        [name]="title"
-      ></app-table-export>
+      <app-table-export [dataSource]="dataSource" [columns]="columnsExport" [columnsName]="columnsExportName"
+        [name]="title"></app-table-export>
     </div>
   </div>
 </mat-card>
 
-<mat-table
-  [dataSource]="dataSource"
-  matSort
-  matSortActive="id"
-  class="mat-elevation-z8"
->
+<mat-table [dataSource]="dataSource" matSort matSortActive="id" class="mat-elevation-z8">
   <ng-container matColumnDef="mentoredName">
     <mat-header-cell mat-sort-header *matHeaderCellDef>
       Mentorado
@@ -125,10 +95,7 @@
   <ng-container matColumnDef="status">
     <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <app-status-badge-invoice
-        [value]="row.status"
-        [statusDescription]="row.statusDescription"
-      >
+      <app-status-badge-invoice [value]="row.status" [statusDescription]="row.statusDescription">
       </app-status-badge-invoice>
     </mat-cell>
     <mat-footer-cell *matFooterCellDef></mat-footer-cell>
@@ -136,22 +103,12 @@
 
   <mat-header-row *matHeaderRowDef="displayedColumnsInvoices"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumnsInvoices"></mat-row>
-  <mat-footer-row
-    *matFooterRowDef="displayedColumnsInvoices"
-    [hidden]="loading"
-  ></mat-footer-row>
+  <mat-footer-row *matFooterRowDef="displayedColumnsInvoices" [hidden]="loading"></mat-footer-row>
 </mat-table>
 
-<mat-card
-  *ngIf="loading"
-  class="w-100 d-flex justify-content-center table-loading"
->
+<mat-card *ngIf="loading" class="w-100 d-flex justify-content-center table-loading">
   <mat-spinner diameter="20"></mat-spinner>
 </mat-card>
 
-<mat-paginator
-  class="mat-paginator-table"
-  [pageSize]="paginatorHelper.PageSize"
-  [pageSizeOptions]="paginatorHelper.PageSizeOptions"
-  showFirstLastButtons
-></mat-paginator>
+<mat-paginator class="mat-paginator-table" [pageSize]="paginatorHelper.PageSize"
+  [pageSizeOptions]="paginatorHelper.PageSizeOptions" showFirstLastButtons></mat-paginator>

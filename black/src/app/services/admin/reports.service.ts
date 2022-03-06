@@ -13,11 +13,11 @@ export class ReportService {
 
   constructor(private http: HttpClient) {}
 
-  getInvoicesPeriod(datInit: Date, datEnd: Date): Observable<InvoiceModel[]> {
+  getInvoicesPeriod(datInit: Date, datEnd: Date, paid: boolean): Observable<InvoiceModel[]> {
     return this.http.get<InvoiceModel[]>(
       `${environment.urlApiResource}/${
         this.endpoint
-      }/invoices?datInit=${datInit.toISOString()}&datEnd=${datEnd.toISOString()}`
+      }/invoices?datInit=${datInit.toISOString()}&datEnd=${datEnd.toISOString()}&paid=${paid}`
     );
   }
 

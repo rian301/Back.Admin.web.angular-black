@@ -64,6 +64,7 @@ export class ReportMentoredComponent implements OnInit {
   filterText: string;
   filterMentoredValue: number;
   filteInvoiceInadiplentValue: number = 0;
+  isChecked: boolean = false;
 
   constructor(
     private _reportService: ReportService,
@@ -71,7 +72,7 @@ export class ReportMentoredComponent implements OnInit {
     private _formbuilder: FormBuilder,
     private _utilService: UtilService,
     private _utilitariosService: UtilitariosService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.startDateInit.setDate(this.startDateInit.getDate() - 30);
@@ -103,7 +104,7 @@ export class ReportMentoredComponent implements OnInit {
     this.loading = true;
 
     this._reportService
-      .getInvoicesPeriod(this.form.value.datInit, this.form.value.datEnd)
+      .getInvoicesPeriod(this.form.value.datInit, this.form.value.datEnd, this.isChecked)
       .toPromise()
       .then((ret) => {
         this.situations = [];
@@ -160,8 +161,8 @@ export class ReportMentoredComponent implements OnInit {
         return this.filteInvoiceInadiplentValue == 0
           ? true
           : this.filteInvoiceInadiplentValue == 1
-          ? data.overdueSince == null
-          : data.overdueSince != null;
+            ? data.overdueSince == null
+            : data.overdueSince != null;
       };
 
       return filterStatus() && filterMentored() && filterInvoiceInadiplent();
@@ -179,5 +180,9 @@ export class ReportMentoredComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  checkBox(event) {
+    this.load();
   }
 }
