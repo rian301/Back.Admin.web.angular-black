@@ -47,6 +47,12 @@
       <mat-footer-cell *matFooterCellDef></mat-footer-cell>
     </ng-container>
 
+    <ng-container matColumnDef="awardName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Prêmio </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.awardName }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
     <ng-container matColumnDef="dateRequest">
       <mat-header-cell mat-sort-header *matHeaderCellDef> Data da solicitação </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{ row.dateRequest | date: 'dd/MM/yyyy' }} </mat-cell>
@@ -56,12 +62,6 @@
     <ng-container matColumnDef="dateSend">
       <mat-header-cell mat-sort-header *matHeaderCellDef> Data do envio </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{ row.dateSend | date: 'dd/MM/yyyy' }} </mat-cell>
-      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="dateReceiving">
-      <mat-header-cell mat-sort-header *matHeaderCellDef> Data do recebimento </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.dateReceiving | date: 'dd/MM/yyyy' }} </mat-cell>
       <mat-footer-cell *matFooterCellDef></mat-footer-cell>
     </ng-container>
 
