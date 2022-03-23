@@ -35,6 +35,9 @@ import { PendencyComponent } from './pendency/pendency/pendency.component';
 import { PendencyListComponent } from './pendency/pendency-list/pendency-list.component';
 import { PendencyService } from 'src/app/services/admin/pedency.service';
 import { PendencyDocComponent } from './pendency/pendency-doc/pendency-doc.component';
+import { ApplicationListComponent } from './application/application-list/application-list.component';
+import { ApplicationComponent } from './application/application/application.component';
+import { ApplicationService } from 'src/app/services/admin/application.service';
 
 @NgModule({
   imports: [
@@ -66,7 +69,9 @@ import { PendencyDocComponent } from './pendency/pendency-doc/pendency-doc.compo
     ModalDocPurchaseComponent,
     PendencyComponent,
     PendencyListComponent,
-    PendencyDocComponent
+    PendencyDocComponent,
+    ApplicationListComponent,
+    ApplicationComponent
   ],
   providers: [
     ExpenseControlService,
@@ -76,7 +81,8 @@ import { PendencyDocComponent } from './pendency/pendency-doc/pendency-doc.compo
     DailyPaymentService,
     DocumentService,
     PurchaseControlService,
-    PendencyService
+    PendencyService,
+    ApplicationService
   ]
 })
 export class FinancialModule { }

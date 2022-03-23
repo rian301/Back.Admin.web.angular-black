@@ -100,6 +100,7 @@ export class Init {
         new Menu("Categoria", "category", "financeiro/categoria"),
         // new Menu("Documentos", "post_add", "financeiro/documento"),
         new Menu("Pendências", "warning_amber", "financeiro/pendencias"),
+        new Menu("Aplicativos", "apps", "financeiro/app"),
       ])
     );
     this.menus.push(
@@ -117,7 +118,6 @@ export class Init {
       new Menu("Premiação", "military_tech", "", false, false, [
        new Menu("Prêmios", "emoji_events", "premiacao/premios"),
        new Menu("Envios", "local_shipping", "premiacao/envio"),
-       new Menu("Aplicativos", "apps", "premiacao/app"),
        new Menu("Brindes", "card_giftcard", "premiacao/brinde"),
       ])
     );

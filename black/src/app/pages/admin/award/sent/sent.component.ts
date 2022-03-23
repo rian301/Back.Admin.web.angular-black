@@ -74,7 +74,8 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
       complement: [''],
       district: [''],
       city: [''],
-      state: ['']
+      state: [''],
+      note: ['']
     });
   }
 

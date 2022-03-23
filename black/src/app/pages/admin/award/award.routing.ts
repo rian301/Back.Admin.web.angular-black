@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PermissionHelper } from 'src/app/helpers/permission.helper';
 import { AuthGuard } from 'src/app/services/auth/auth.guard';
-import { ApplicationListComponent } from './application-list/application-list.component';
-import { ApplicationComponent } from './application/application.component';
 import { AwardListComponent } from './award-list/award-list.component';
 import { AwardComponent } from './award/award.component';
 import { GiftListComponent } from './gift-list/gift-list.component';
@@ -55,24 +53,6 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         data: { permission: PermissionHelper.SENT_ADD },
         component:  SentComponent
-      },
-      {
-        path: 'app',
-        canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_VIEW },
-        component: ApplicationListComponent
-      },
-      {
-        path: 'app/novo',
-        canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_ADD },
-        component:  ApplicationComponent
-      },
-      {
-        path: 'app/:id',
-        canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_ADD },
-        component:  ApplicationComponent
       },
       {
         path: 'brinde',

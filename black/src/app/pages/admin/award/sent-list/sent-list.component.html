@@ -47,6 +47,12 @@
       <mat-footer-cell *matFooterCellDef></mat-footer-cell>
     </ng-container>
 
+    <ng-container matColumnDef="mentoredName">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Mentorado </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.mentoredName }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
     <ng-container matColumnDef="awardName">
       <mat-header-cell mat-sort-header *matHeaderCellDef> Prêmio </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{ row.awardName }} </mat-cell>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PermissionHelper } from 'src/app/helpers/permission.helper';
 import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { ApplicationListComponent } from './application/application-list/application-list.component';
+import { ApplicationComponent } from './application/application/application.component';
 import { DailyPaymentListComponent } from './daily-payment/daily-payment-list/daily-payment-list.component';
 import { DailyPaymentComponent } from './daily-payment/daily-payment/daily-payment.component';
 import { DocumentListComponent } from './document/document-list/document-list.component';
@@ -151,6 +153,24 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         data: { permission: PermissionHelper.PENDENCY_ADD },
         component:  PendencyComponent
+      },
+      {
+        path: 'app',
+        canActivate: [AuthGuard],
+        data: { permission: PermissionHelper.APP_VIEW },
+        component: ApplicationListComponent
+      },
+      {
+        path: 'app/novo',
+        canActivate: [AuthGuard],
+        data: { permission: PermissionHelper.APP_ADD },
+        component:  ApplicationComponent
+      },
+      {
+        path: 'app/:id',
+        canActivate: [AuthGuard],
+        data: { permission: PermissionHelper.APP_ADD },
+        component:  ApplicationComponent
       },
     ]
   }
