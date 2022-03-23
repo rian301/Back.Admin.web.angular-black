@@ -27,10 +27,12 @@ export class SentListComponent implements OnInit {
   displayedColumns: string[] = ['customerName', 'mentoredName', 'awardName', 'dateRequest', 'dateSend', 'status', 'action'];
   columnsExport: string[] = ['awardName', 'customerName', 'district', 'street', 'number', 'complement', 'zipCode', 'dateSendExport', 'campaign', 'statusDescription'];
   columnsExportName: string[] = ['Prêmio', 'Aluno', 'Bairro', 'Rua', 'Número', 'Complemento', 'CEP', 'Data de envio', 'Campanha', 'Status'];
-  filterProviderValue: number;
+  filterCustomerValue: number;
+  filterMentoredValue: number;
   loading: boolean = false;
   dataSource = new MatTableDataSource();
   sents: DropDownModel[] = [];
+  mentoreds: DropDownModel[] = [];
   status: string[] = [];
   filterStatus: string = "";
 
@@ -70,10 +72,14 @@ export class SentListComponent implements OnInit {
         this.dataSource.data = ret;
         this.sents = [];
         this.status = [];
+        this.mentoreds = [];
         // Carrega os selects dos filtros
         ret.forEach(item => {
-          if (this.sents.findIndex(f => f.id == item.id) < 0)
-            this.sents.push(new DropDownModel(item.id, item.customerName));
+          if (this.sents.findIndex(f => f.id == item.customerId) < 0)
+            this.sents.push(new DropDownModel(item.customerId, item.customerName));
+
+          if (this.mentoreds.findIndex(f => f.id == item.mentoredId) < 0)
+            this.mentoreds.push(new DropDownModel(item.mentoredId, item.mentoredName));
 
           if (!this.status.includes(item.statusDescription))
             this.status.push(item.statusDescription);
@@ -83,6 +89,8 @@ export class SentListComponent implements OnInit {
           item.dateReceivingExport = this._datePipe.transform(item.dateReceiving?.toString(), 'dd/MM/yyyy');
         });
         this.loading = false;
+        console.log(this.mentoreds);
+
       })
       .catch(error => {
         this.loading = false;
@@ -104,8 +112,12 @@ export class SentListComponent implements OnInit {
     // filterPredicate É a função do matTable que pesquisa em todas as colunas.
     this.dataSource.filterPredicate = (data: SentModel) => {
 
-      let filterPendency = () => {
-        return this.filterProviderValue == null || this.filterProviderValue == 0 ? true : data.id == this.filterProviderValue;
+      let filterCustomer = () => {
+        return this.filterCustomerValue == null || this.filterCustomerValue == 0 ? true : data.customerId == this.filterCustomerValue;
+      };
+
+      let filterMentored = () => {
+        return this.filterMentoredValue == null || this.filterMentoredValue == 0 ? true : data.mentoredId == this.filterMentoredValue;
       };
 
       let filterStatus = () => {
@@ -114,7 +126,7 @@ export class SentListComponent implements OnInit {
           : data.statusDescription == this.filterStatus;
       };
 
-      return filterPendency() && filterStatus();
+      return filterCustomer() && filterMentored() && filterStatus();
     };
   }
 

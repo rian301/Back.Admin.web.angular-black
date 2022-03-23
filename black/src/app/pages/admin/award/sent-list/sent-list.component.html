@@ -16,7 +16,14 @@
     <div class="row mb-n3">
       <div class="col mr-n3">
         <ng-select appearance="outline" [items]="sents" bindLabel="text" bindValue="id"
-          [(ngModel)]="filterProviderValue" (change)="searchFilter()" placeholder="Descrição"
+          [(ngModel)]="filterCustomerValue" (change)="searchFilter()" placeholder="Aluno"
+          [ngModelOptions]="{standalone: true}">
+        </ng-select>
+      </div>
+
+      <div class="col mr-n3">
+        <ng-select appearance="outline" [items]="mentoreds" bindLabel="text" bindValue="id"
+          [(ngModel)]="filterMentoredValue" (change)="searchFilter()" placeholder="Mentorado"
           [ngModelOptions]="{standalone: true}">
         </ng-select>
       </div>
@@ -32,7 +39,7 @@
         </mat-select>
       </mat-form-field>
 
-      <div class="col text-right" [hidden]="dataSource.data.length <= 0">
+      <div class="col-1 text-right" [hidden]="dataSource.data.length <= 0">
         <app-table-export [dataSource]="dataSource" [columns]="columnsExport" [columnsName]="columnsExportName"
           [name]="title"></app-table-export>
       </div>
