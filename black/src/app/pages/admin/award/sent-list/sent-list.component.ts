@@ -25,8 +25,8 @@ export class SentListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   paginatorHelper: typeof PaginatorHelper = PaginatorHelper;
   displayedColumns: string[] = ['customerName', 'mentoredName', 'awardName', 'dateRequest', 'dateSend', 'status', 'action'];
-  columnsExport: string[] = ['awardName', 'customerName', 'district', 'street', 'number', 'complement', 'zipCode', 'dateSendExport', 'campaign', 'statusDescription'];
-  columnsExportName: string[] = ['Prêmio', 'Aluno', 'Bairro', 'Rua', 'Número', 'Complemento', 'CEP', 'Data de envio', 'Campanha', 'Status'];
+  columnsExport: string[] = ['awardName', 'customerName', 'mentoredName', 'city', 'district', 'state', 'street', 'number', 'complement', 'zipCode', 'dateSendExport', 'campaign', 'statusDescription'];
+  columnsExportName: string[] = ['Prêmio', 'Aluno', 'Mentorado', 'Cidade', 'Bairro', 'Estado', 'Rua', 'Número', 'Complemento', 'CEP', 'Data de envio', 'Campanha', 'Status'];
   filterCustomerValue: number;
   filterMentoredValue: number;
   loading: boolean = false;
