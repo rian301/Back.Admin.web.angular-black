@@ -194,7 +194,7 @@
         Cancelar
       </button>
       <button type="submit"
-         (click)="save()" mat-flat-button class="bg-primary text-white">
+         (click)="save()" mat-flat-button class="bg-primary text-white" [ngClass]="{'bg-disabled': loading || statusCode == statusSubscription.Canceled}" [class.btnSpinner]="loading">
         Salvar
       </button>
     </mat-dialog-actions>

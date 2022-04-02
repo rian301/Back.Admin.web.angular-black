@@ -334,8 +334,6 @@ export class MentoredPaymentComponent
 
   validStatus(statusCode: number) {
     this.statusCode = statusCode;
-    console.log(this.statusCode);
-
   }
 
   modalConfirmationDeactivate() {
