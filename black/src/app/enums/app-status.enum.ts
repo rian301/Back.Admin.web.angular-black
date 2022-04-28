@@ -11,6 +11,14 @@ export function TraduzirSentStatusTypeEnum(valor: SentStatusEnum): string {
     case 2:
       return "Pendente";
     case 3:
-      return "Pendente";
+      return "Recebido";
   }
+}
+
+export function listaEnumSentType() {
+  return [
+      { type: 1, name: TraduzirSentStatusTypeEnum(1) },
+      { type: 2, name: TraduzirSentStatusTypeEnum(2) },
+      { type: 3, name: TraduzirSentStatusTypeEnum(3) },
+  ];
 }

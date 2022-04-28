@@ -2,11 +2,12 @@ import { AdressModel } from "./adress.model";
 
 export class SentModel {
     id: number = null;
-    awardId: string = null;
+    awardId: number = null;
     customerId: number = null;
     mentoredId: number = null;
     customerName: string = null;
     mentoredName: string = null;
+    awardName: string = null;
     dateRequest: Date = null;
     dateSend: Date = null;
     dateReceiving: Date = null;

@@ -172,6 +172,18 @@ export class NavigationService {
     this._router.navigate([`financeiro/pendencia/${id}`]);
   }
 
+  appList() {
+    this._router.navigate(["financeiro/app"]);
+  }
+
+  appNew() {
+    this._router.navigate(["financeiro/app/novo"]);
+  }
+
+  appEdit(id: number) {
+    this._router.navigate([`financeiro/app/${id}`]);
+  }
+
   sentList() {
     this._router.navigate(["premiacao/envio"]);
   }
@@ -182,18 +194,6 @@ export class NavigationService {
 
   sentEdit(id: number) {
     this._router.navigate([`premiacao/envio/${id}`]);
-  }
-
-  appList() {
-    this._router.navigate(["premiacao/app"]);
-  }
-
-  appNew() {
-    this._router.navigate(["premiacao/app/novo"]);
-  }
-
-  appEdit(id: number) {
-    this._router.navigate([`premiacao/app/${id}`]);
   }
 
   giftList() {

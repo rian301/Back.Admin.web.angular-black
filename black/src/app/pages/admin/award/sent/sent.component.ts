@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { SentStatusEnum } from 'src/app/enums/app-status.enum';
 import { OnDestroySubscriptions } from 'src/app/helpers/detroy-subscriptions.helper';
-import { CustomerListModel } from 'src/app/models';
+import { CustomerListModel, CustomerModel } from 'src/app/models';
 import { AwardModel } from 'src/app/models/award.model';
 import { MentoredModel } from 'src/app/models/mentored.model';
 import { SentModel } from 'src/app/models/sent.model';
@@ -208,6 +208,16 @@ export class SentComponent extends OnDestroySubscriptions implements OnInit {
           this._utilitariosService.SnackAlert(msg, 'error');
         });
       });
+  }
+
+  changeCustomer(customer: CustomerModel) {
+    this.form.controls.zipCode.setValue(customer.zipCode);
+    this.form.controls.street.setValue(customer.street);
+    this.form.controls.number.setValue(customer.number);
+    this.form.controls.complement.setValue(customer.complement);
+    this.form.controls.district.setValue(customer.district);
+    this.form.controls.city.setValue(customer.city);
+    this.form.controls.state.setValue(customer.state);
   }
 
   save() {

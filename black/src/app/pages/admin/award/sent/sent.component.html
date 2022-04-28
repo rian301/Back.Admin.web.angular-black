@@ -26,14 +26,14 @@
         <input-validator class="col-md-3" [messages]="{required: 'Campo obrigatório'}">
           <ng-select appearance="outline" [items]="customers" bindLabel="name" bindValue="id"
             formControlName="searchCustomer" [(ngModel)]="search" placeholder="Aluno"
-            (keyup)="searchCustomer($event.target.value)">
+            (keyup)="searchCustomer($event.target.value)" (change)="changeCustomer($event)">
           </ng-select>
         </input-validator>
 
         <input-validator class="col-md-3" [messages]="{required: 'Campo obrigatório'}">
           <ng-select appearance="outline" [items]="mentoreds" bindLabel="name" bindValue="id"
             formControlName="searchMentored" [(ngModel)]="searchM" placeholder="Mentorado"
-            (keyup)="searchMentored($event.target.value)">
+            (keyup)="searchMentored($event.target.value)" (change)="changeCustomer($event)">
           </ng-select>
         </input-validator>
 
