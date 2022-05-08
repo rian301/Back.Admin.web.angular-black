@@ -10,6 +10,7 @@ export class ApplicationModel {
   dateCanceled: Date = null;
   motiveCancel: string = null;
   status: number = null;
+  note: string = null;
 
   statusDescription: string = null;
   datePurchaseExport: string = null;

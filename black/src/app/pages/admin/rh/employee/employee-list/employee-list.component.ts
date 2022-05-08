@@ -36,12 +36,16 @@ export class EmployeeListComponent extends OnDestroySubscriptions implements OnI
   columnsExport: string[] = [
     "name",
     "email",
+    "function",
+    "wage",
     "statusDescription",
     "typeDescription",
   ];
   columnsExportName: string[] = [
     "Nome",
     "E-mail",
+    "Função",
+    "Remuneração R$",
     "Status",
     "Tipo"
   ];

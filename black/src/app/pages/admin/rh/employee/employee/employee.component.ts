@@ -171,6 +171,7 @@ export class EmployeeComponent extends OnDestroySubscriptions implements OnInit 
         if (resp != null) {
           this._snackBar.open(model.id > 0 ? `Colaborador atualizado com sucesso!` : `Colaborador salvo com sucesso!`);
           this.id = resp.id;
+          this._navigationService.employeeList();
           this.loadEmployee();
         }
       })

@@ -54,6 +54,7 @@ export class ApplicationComponent extends OnDestroySubscriptions implements OnIn
       dateCanceledExport: [null],
       datePurchaseExport: [null],
       statusDescription: [null],
+      note: [null],
     });
   }
 
