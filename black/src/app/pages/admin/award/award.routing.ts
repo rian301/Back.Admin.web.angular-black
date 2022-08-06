@@ -57,19 +57,19 @@ export const routes: Routes = [
       {
         path: 'brinde',
         canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_VIEW },
+        data: { permission: PermissionHelper.AWARD_VIEW },
         component: GiftListComponent
       },
       {
         path: 'brinde/novo',
         canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_ADD },
+        data: { permission: PermissionHelper.AWARD_ADD },
         component:  GiftComponent
       },
       {
         path: 'brinde/:id',
         canActivate: [AuthGuard],
-        data: { permission: PermissionHelper.APP_ADD },
+        data: { permission: PermissionHelper.AWARD_ADD },
         component:  GiftComponent
       }
     ]
