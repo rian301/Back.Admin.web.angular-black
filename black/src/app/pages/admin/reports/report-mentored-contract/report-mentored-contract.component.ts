@@ -25,6 +25,7 @@ export class ReportMentoredContractComponent implements OnInit {
   situations: string[] = [];
   inadiplents: DropDownModel[] = [];
   mentoreds: DropDownModel[] = [];
+  startDate = new Date();
 
   // Paginação
   @ViewChild(MatPaginator) paginator: MatPaginator;

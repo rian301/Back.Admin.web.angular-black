@@ -340,14 +340,46 @@ export class MentoredPaymentComponent
     const dialogRef = this._dialog.open(ModalConfirmationComponent, {
       maxWidth: "50%",
       data: {
+        title: "Deseja confirmar a desativação?",
+        // subTitle:
+        //   "Ao inativar a assinatura todas as faturas que não foram pagas pertencentes a esta assinatura serão canceladas. ATENÇÃO! Após a confimação não será possível reativar a assinatura.",
+      },
+    });
+    dialogRef.afterClosed().subscribe((result: ConfirmationModel) => {
+      if (result.confirm) {
+        this.changeStatusSubscription(SubscriptionStatusEnum.Inactive);
+      }
+    });
+  }
+
+  modalConfirmationCancel() {
+    const dialogRef = this._dialog.open(ModalConfirmationComponent, {
+      maxWidth: "50%",
+      data: {
         title: "Deseja confirmar o cancelamento?",
-        subTitle:
-          "Ao cancelar a assinatura todas as faturas que não foram pagas pertencentes a esta assinatura serão canceladas. ATENÇÃO! Após a confimação não será possível reativar a assinatura.",
+        // subTitle:
+        //   "Ao cancelar a assinatura todas as faturas que não foram pagas pertencentes a esta assinatura serão canceladas. ATENÇÃO! Após a confimação não será possível reativar a assinatura.",
       },
     });
     dialogRef.afterClosed().subscribe((result: ConfirmationModel) => {
       if (result.confirm) {
         this.changeStatusSubscription(SubscriptionStatusEnum.Canceled);
+      }
+    });
+  }
+
+  modalConfirmationConclude() {
+    const dialogRef = this._dialog.open(ModalConfirmationComponent, {
+      maxWidth: "50%",
+      data: {
+        title: "Deseja confirmar a conclusão?",
+        // subTitle:
+        //   "Ao cancelar a assinatura todas as faturas que não foram pagas pertencentes a esta assinatura serão canceladas. ATENÇÃO! Após a confimação não será possível reativar a assinatura.",
+      },
+    });
+    dialogRef.afterClosed().subscribe((result: ConfirmationModel) => {
+      if (result.confirm) {
+        this.changeStatusSubscription(SubscriptionStatusEnum.Conclude);
       }
     });
   }
